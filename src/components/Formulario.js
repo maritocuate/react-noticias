@@ -5,7 +5,17 @@ import useSelect from '../hooks/useSelect'
 
 const Formulario = () => {
 
-    const [categoria, SelectorNoticias] = useSelect('')
+    const newsCategorias = [
+        {value:'business', label:'Business'},
+        {value:'entertainment', label:'Entertainment'},
+        {value:'general', label:'General'},
+        {value:'health', label:'Health'},
+        {value:'science', label:'Science'},
+        {value:'sports', label:'Sports'},
+        {value:'technology', label:'Technology'}
+    ]
+
+    const [categoria, SelectorNoticias] = useSelect('general', newsCategorias)
 
     return (
         <div className={`${styles.buscador} row`}>
