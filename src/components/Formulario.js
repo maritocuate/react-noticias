@@ -3,7 +3,7 @@ import styles from './Formulario.module.css'
 
 import useSelect from '../hooks/useSelect'
 
-const Formulario = () => {
+const Formulario = ({setCategoria}) => {
 
     const newsCategorias = [
         {value:'business', label:'Business'},
@@ -17,9 +17,14 @@ const Formulario = () => {
 
     const [categoria, SelectorNoticias] = useSelect('general', newsCategorias)
 
+    const handleSubmit = e => {
+        e.preventDefault()
+        setCategoria(categoria)
+    }
+
     return (
         <div className={`${styles.buscador} row`}>
-            <div className='col s12 m8 offset-m2'>
+            <form className='col s12 m8 offset-m2' onSubmit={handleSubmit}>
                 <h2 className={styles.heading}>Encuentra noticias</h2>
 
                 <SelectorNoticias />
@@ -31,7 +36,7 @@ const Formulario = () => {
                         value='Buscar'
                     />
                 </div>
-            </div>
+            </form>
         </div>
     );
 }
