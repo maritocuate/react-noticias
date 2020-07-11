@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 
 const Noticia = ({noticia}) => {
 
@@ -11,7 +12,7 @@ const Noticia = ({noticia}) => {
                     <img src={urlToImage} alt={title}/>
                     <span className='card-title'>{source.name}</span>
                 </div>
-                
+
                 <div className='card-content'>
                     <h3>{title.substr(0, 30)}</h3>
                     <p>{description}</p>
@@ -28,6 +29,10 @@ const Noticia = ({noticia}) => {
             </div>
         </div>
     );
+}
+
+Noticia.propTypes = {
+    noticia: PropTypes.object.isRequired
 }
  
 export default Noticia;
